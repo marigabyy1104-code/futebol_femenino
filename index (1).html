@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Futebol Delas: informação, história, conquistas e representatividade no futebol feminino.">
+  <title>Futebol Delas | A força também entra em campo</title>
+  <style>
+    :root{--bg:#090909;--panel:#141414;--panel2:#1c1c1c;--pink:#ff3f9b;--pink2:#ff78b8;--white:#f7f4f6;--muted:#b9b2b7;--line:#30252c}
+    *{box-sizing:border-box;margin:0;padding:0;scroll-behavior:smooth}
+    body{font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--white);line-height:1.7}
+    a{color:inherit;text-decoration:none}
+    .container{width:min(1120px,92%);margin:auto}
+    header{position:sticky;top:0;z-index:20;background:rgba(9,9,9,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+    .nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .logo{font-weight:900;font-size:1.35rem;letter-spacing:1px}.logo span{color:var(--pink)}
+    nav{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+    nav a{font-size:.9rem;color:#e7dfe4;transition:.2s}nav a:hover{color:var(--pink)}
+    .menu-btn{display:none;background:none;color:white;border:1px solid var(--pink);padding:8px 12px;border-radius:8px}
+    .hero{min-height:570px;display:flex;align-items:center;background:radial-gradient(ellipse at 80% 45%,#4b1230 0%,#1b0c14 30%,#090909 70%);border-bottom:1px solid var(--line)}
+    .hero-content{max-width:760px;padding:90px 0}
+    .eyebrow{color:var(--pink2);font-size:.8rem;font-weight:bold;letter-spacing:3px;text-transform:uppercase}
+    h1{font-size:clamp(2.8rem,7vw,5.8rem);line-height:1.02;margin:18px 0}
+    h1 span,.pink{color:var(--pink)}
+    .hero p{font-size:1.12rem;color:#d4cbd1;max-width:650px}
+    .actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
+    .btn{display:inline-block;padding:12px 21px;border-radius:7px;font-weight:bold;border:1px solid var(--pink);transition:.2s}
+    .btn.primary{background:var(--pink);color:#12070d}.btn:hover{transform:translateY(-2px);filter:brightness(1.12)}
+    section{padding:82px 0;scroll-margin-top:75px}
+    .section-head{max-width:760px;margin-bottom:34px}
+    .section-head h2{font-size:clamp(2rem,4vw,3rem);line-height:1.15;margin:9px 0 14px}
+    .section-head p,.muted{color:var(--muted)}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:var(--panel);border:1px solid var(--line);border-radius:13px;padding:23px}
+    .card h3{margin:8px 0;color:var(--white);font-size:1.18rem}
+    .card p{color:var(--muted);font-size:.95rem}
+    .number{font-size:2rem;font-weight:900;color:var(--pink)}
+    .dark-section{background:#101010;border-top:1px solid #211a1f;border-bottom:1px solid #211a1f}
+    .timeline{border-left:2px solid var(--pink);margin-left:8px;padding-left:25px;display:grid;gap:24px}
+    .timeline article{position:relative}.timeline article:before{content:"";position:absolute;width:11px;height:11px;border-radius:50%;background:var(--pink);left:-32px;top:8px}
+    .timeline strong{color:var(--pink2);font-size:1.05rem}
+    .players-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .player{background:linear-gradient(145deg,#1a1518,#111);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+    .player-top{height:110px;background:linear-gradient(120deg,#501333,#171017);display:flex;align-items:center;justify-content:center}
+    .initial{width:68px;height:68px;border-radius:50%;display:grid;place-items:center;background:#090909;border:2px solid var(--pink);color:var(--pink);font-size:1.5rem;font-weight:900}
+    .player-body{padding:20px}.player-body h3{font-size:1.2rem}.country{color:var(--pink2);font-size:.82rem;font-weight:bold}
+    .position{display:inline-block;margin:9px 0;padding:4px 9px;background:#321326;color:#ff9ac8;border-radius:20px;font-size:.78rem}
+    .player-body p{font-size:.91rem;color:var(--muted)}
+    .tagline{font-size:.83rem;color:#e9dce4;margin-top:12px}
+    .notice{border-left:4px solid var(--pink);background:#1b1117;padding:22px;border-radius:0 10px 10px 0;color:#e8dce3}
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:28px}
+    .stat{background:#171217;border:1px solid var(--line);padding:20px;border-radius:10px;text-align:center}
+    .stat b{display:block;font-size:1.8rem;color:var(--pink)}
+    .faq details{background:var(--panel);border:1px solid var(--line);padding:17px 20px;border-radius:9px;margin:10px 0}
+    .faq summary{cursor:pointer;font-weight:bold}.faq details p{color:var(--muted);padding-top:12px}
+    .sources li{margin:10px 0;color:var(--muted)}.sources a{color:var(--pink2);text-decoration:underline}
+    footer{padding:30px 0;border-top:1px solid var(--line);color:var(--muted);text-align:center;font-size:.88rem}
+    .toplink{position:fixed;right:18px;bottom:18px;background:var(--pink);color:#160810;padding:10px 14px;border-radius:50%;font-weight:bold}
+    @media(max-width:850px){.grid,.players-grid{grid-template-columns:repeat(2,1fr)}.stats{grid-template-columns:repeat(2,1fr)}nav{gap:12px}}
+    @media(max-width:620px){.nav{min-height:68px}.menu-btn{display:block}nav{display:none;position:absolute;top:68px;left:0;right:0;background:#0b0b0b;padding:18px 5%;border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start}nav.open{display:flex}.grid,.players-grid{grid-template-columns:1fr}.hero{min-height:500px}.hero-content{padding:70px 0}section{padding:62px 0}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <a class="logo" href="#inicio">FUTEBOL<span>DELAS</span></a>
+    <button class="menu-btn" id="menuBtn" aria-label="Abrir menu" aria-expanded="false">☰ Menu</button>
+    <nav id="menu">
+      <a href="#sobre">Sobre</a><a href="#publico">Público</a><a href="#historia">História</a><a href="#desigualdade">Desigualdade</a>
+      <a href="#jogadoras">Jogadoras</a><a href="#conquistas">Conquistas</a><a href="#curiosidades">Curiosidades</a><a href="#fontes">Fontes</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="inicio">
+    <div class="container hero-content">
+      <div class="eyebrow">Respeito • História • Representatividade</div>
+      <h1>A força também<br>entra em <span>campo.</span></h1>
+      <p>O futebol feminino tem talento, história, conquistas e milhões de torcedoras e torcedores. Está na hora de conhecer, valorizar e dar visibilidade a quem faz esse esporte acontecer.</p>
+      <div class="actions"><a class="btn primary" href="#jogadoras">Conheça as jogadoras</a><a class="btn" href="#historia">Descubra a história</a></div>
+    </div>
+  </section>
+
+  <section id="sobre">
+    <div class="container">
+      <div class="section-head"><div class="eyebrow">O que é o projeto?</div><h2>Sobre o <span class="pink">Futebol Delas</span></h2>
+      <p>O Futebol Delas é um espaço informativo dedicado ao futebol feminino. O objetivo é apresentar sua trajetória, destacar atletas importantes e discutir por que as mulheres ainda enfrentam obstáculos para receber o mesmo reconhecimento que os homens no esporte.</p></div>
+      <div class="grid">
+        <article class="card"><div class="number">01</div><h3>Dar visibilidade</h3><p>Mostrar histórias de atletas que inspiram meninas e mulheres a praticar futebol e ocupar espaços no esporte.</p></article>
+        <article class="card"><div class="number">02</div><h3>Informar</h3><p>Reunir conteúdos sobre regras, competições, história, clubes, seleções e desenvolvimento da modalidade.</p></article>
+        <article class="card"><div class="number">03</div><h3>Promover respeito</h3><p>Contribuir para o debate sobre igualdade de oportunidades, investimento, cobertura da mídia e valorização profissional.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="publico">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Feito para compartilhar conhecimento</div>
+        <h2>Para quem é o <span class="pink">Futebol Delas?</span></h2>
+        <p>O Futebol Delas foi criado para todas as pessoas que desejam conhecer melhor o futebol feminino. A página reúne informações de forma simples e organizada para que diferentes públicos possam aprender, pesquisar e reconhecer a importância das mulheres no esporte.</p>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <div class="number">01</div>
+          <h3>Estudantes</h3>
+          <p>Podem utilizar o conteúdo como ponto de partida para pesquisas e trabalhos escolares sobre a história, as competições e os desafios do futebol feminino.</p>
+        </article>
+        <article class="card">
+          <div class="number">02</div>
+          <h3>Meninas que sonham em jogar</h3>
+          <p>Podem conhecer atletas que abriram caminhos no esporte e encontrar histórias que incentivem a prática do futebol e a confiança em seus próprios objetivos.</p>
+        </article>
+        <article class="card">
+          <div class="number">03</div>
+          <h3>Torcedores e curiosos</h3>
+          <p>Podem descobrir nomes de jogadoras, suas posições, trajetórias, conquistas e informações sobre as principais competições femininas.</p>
+        </article>
+        <article class="card">
+          <div class="number">04</div>
+          <h3>Educadores e famílias</h3>
+          <p>Podem usar a página como apoio para conversar sobre respeito, igualdade de oportunidades e a importância de incentivar meninas no esporte.</p>
+        </article>
+        <article class="card">
+          <div class="number">05</div>
+          <h3>Pessoas interessadas em igualdade</h3>
+          <p>Podem compreender melhor problemas como preconceito, falta de investimento e pouca visibilidade, refletindo sobre mudanças necessárias no futebol.</p>
+        </article>
+        <article class="card">
+          <div class="number">06</div>
+          <h3>Como o site pode ajudar?</h3>
+          <p>Ao reunir história, biografias, curiosidades e referências em um só lugar, o Futebol Delas facilita o acesso à informação, valoriza as atletas e ajuda a combater estereótipos.</p>
+        </article>
+      </div>
+      <div class="notice" style="margin-top:24px">
+        <strong class="pink">Nosso propósito:</strong> fazer com que mais pessoas conheçam o futebol feminino, reconheçam o talento das atletas e entendam que o esporte deve oferecer oportunidades e respeito para todas e todos.
+      </div>
+    </div>
+  </section>
+
+  <section class="dark-section" id="historia">
+    <div class="container">
+      <div class="section-head"><div class="eyebrow">Uma trajetória de resistência</div><h2>A história do futebol <span class="pink">feminino</span></h2>
+      <p>Mulheres jogam futebol há muitas décadas. Em diferentes países, elas precisaram enfrentar preconceitos, proibições e falta de apoio para continuar praticando o esporte.</p></div>
+      <div class="timeline">
+        <article><strong>Início do século XX</strong><p class="muted">Partidas femininas começaram a ganhar atenção em diferentes lugares do mundo. Mesmo com público interessado, muitas equipes enfrentavam resistência social e institucional.</p></article>
+        <article><strong>1941 — Brasil</strong><p class="muted">O Decreto-Lei nº 3.199 organizou o esporte nacional e seu artigo 54 foi usado para impedir que mulheres praticassem modalidades consideradas incompatíveis com sua natureza. A restrição foi regulamentada em 1965.</p></article>
+        <article><strong>1979 — Brasil</strong><p class="muted">A regulamentação que impedia a prática de futebol por mulheres foi revogada. A revogação, porém, não eliminou imediatamente o preconceito nem garantiu estrutura para as equipes.</p></article>
+        <article><strong>1988 — Torneio experimental da FIFA</strong><p class="muted">A FIFA organizou na China um torneio internacional experimental de futebol feminino, importante passo para a criação de uma competição mundial oficial.</p></article>
+        <article><strong>1991 — Primeira Copa do Mundo Feminina</strong><p class="muted">A primeira edição oficial da Copa do Mundo Feminina da FIFA foi realizada na China, abrindo uma nova etapa para a modalidade.</p></article>
+        <article><strong>2007 — Brasil em destaque</strong><p class="muted">A Seleção Brasileira chegou à final da Copa do Mundo Feminina, conquistando o vice-campeonato. Marta foi um dos grandes destaques daquele torneio.</p></article>
+        <article><strong>2023 — Copa do Mundo ampliada</strong><p class="muted">A Copa do Mundo Feminina, realizada na Austrália e na Nova Zelândia, contou pela primeira vez com 32 seleções.</p></article>
+        <article><strong>2027 — Brasil anfitrião</strong><p class="muted">O Brasil está previsto para sediar a Copa do Mundo Feminina de 2027, um marco para a modalidade na América do Sul.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="desigualdade">
+    <div class="container">
+      <div class="section-head"><div class="eyebrow">Um problema que precisa ser discutido</div><h2>Por que o futebol feminino ainda é <span class="pink">desvalorizado?</span></h2>
+      <p>Apesar do crescimento da modalidade, a desigualdade continua aparecendo em vários aspectos do esporte. Não se trata de falta de talento: muitas vezes, trata-se de falta de oportunidade e investimento.</p></div>
+      <div class="grid">
+        <article class="card"><h3>Menos investimento</h3><p>Em muitos contextos, equipes femininas recebem menos recursos para treinamento, viagens, equipamentos, centros de treinamento e formação de base.</p></article>
+        <article class="card"><h3>Diferença salarial</h3><p>As condições de remuneração podem ser muito diferentes entre atletas homens e mulheres. A desigualdade varia conforme país, liga, clube e modalidade de contrato.</p></article>
+        <article class="card"><h3>Pouca cobertura da mídia</h3><p>Durante muito tempo, jogos e conquistas femininas receberam menos espaço em transmissões, jornais, programas esportivos e publicidade.</p></article>
+        <article class="card"><h3>Preconceito e estereótipos</h3><p>Comentários machistas e a ideia equivocada de que futebol seria um esporte apenas masculino ainda afastam meninas dos campos.</p></article>
+        <article class="card"><h3>Estrutura e oportunidades</h3><p>Nem todas as regiões possuem campeonatos de base, campos adequados, profissionais especializados e caminhos acessíveis para a profissionalização.</p></article>
+        <article class="card"><h3>Reconhecimento tardio</h3><p>Muitas atletas precisam alcançar resultados extraordinários para receber a atenção que deveria fazer parte da cobertura esportiva cotidiana.</p></article>
+      </div>
+      <div class="notice" style="margin-top:24px"><strong class="pink">Uma reflexão:</strong> quando meninas têm acesso a campos, treinadoras, campeonatos e incentivo, elas podem desenvolver seu talento. Valorizar o futebol feminino significa oferecer condições justas para que todas as pessoas possam praticar esporte.</div>
+    </div>
+  </section>
+
+  <section class="dark-section" id="jogadoras">
+    <div class="container">
+      <div class="section-head"><div class="eyebrow">Elas fizeram e fazem história</div><h2>Grandes nomes do futebol <span class="pink">feminino</span></h2>
+      <p>Conheça algumas atletas reconhecidas internacionalmente. As posições indicadas são as funções mais associadas às suas carreiras; uma jogadora pode atuar em mais de uma posição conforme a tática da equipe.</p></div>
+      <div class="players-grid">
+        <article class="player"><div class="player-top"><div class="initial">M</div></div><div class="player-body"><h3>Marta</h3><div class="country">Brasil 🇧🇷</div><span class="position">Atacante / meia-atacante</span><p>Nascida em Dois Riachos, Alagoas, em 1986, Marta Vieira da Silva tornou-se um dos maiores nomes da história do futebol. Conhecida como Rainha Marta, destacou-se pela habilidade, velocidade, dribles e capacidade de decidir partidas. Defendeu a Seleção Brasileira em várias Copas do Mundo e é a maior artilheira da história da Copa do Mundo Feminina, com 17 gols.</p><div class="tagline">Destaque: seis participações em Copas do Mundo.</div></div></article>
+        <article class="player"><div class="player-top"><div class="initial">F</div></div><div class="player-body"><h3>Formiga</h3><div class="country">Brasil 🇧🇷</div><span class="position">Volante / meio-campista</span><p>Miraildes Maciel Mota, conhecida como Formiga, nasceu em Salvador, Bahia, em 1978. Construiu uma carreira histórica pela longevidade, liderança e dedicação à Seleção Brasileira. Atuou em sete edições da Copa do Mundo Feminina, recorde entre as jogadoras, e participou de sete edições dos Jogos Olímpicos.</p><div class="tagline">Destaque: referência de resistência e longevidade no esporte.</div></div></article>
+        <article class="player"><div class="player-top"><div class="initial">C</div></div><div class="player-body"><h3>Cristiane</h3><div class="country">Brasil 🇧🇷</div><span class="position">Atacante</span><p>Cristiane Rozeira de Souza Silva nasceu em Osasco, São Paulo, em 1985. É uma das principais artilheiras da história da Seleção Brasileira. Conhecida pela força física, presença na área e finalização, disputou cinco Copas do Mundo e marcou gols importantes em competições internacionais.</p><div class="tagline">Destaque: uma das maiores goleadoras brasileiras em Mundiais.</div></div></article>
+        <article class="player"><div class="player-top"><div class="initial">D</div></div><div class="player-body"><h3>Debinha</h3><div class="country">Brasil 🇧🇷</div><span class="position">Atacante</span><p>Débora Cristiane de Oliveira, conhecida como Debinha, é uma atacante brasileira reconhecida pela velocidade, movimentação e habilidade no um contra um. Construiu carreira em clubes do Brasil e do exterior e tornou-se presença importante na Seleção Brasileira, participando de grandes torneios internacionais.</p><div class="tagline">Destaque: versatilidade e velocidade no ataque.</div></div></article>
+        <article class="player"><div class="player-top"><div class="initial">A</div></div><div class="player-body"><h3>Alexia Putellas</h3><div class="country">Espanha 🇪🇸</div><span class="position">Meio-campista</span><p>Nascida em Mollet del Vallès, na Espanha, em 1994, Alexia é uma das grandes referências do futebol espanhol. Formada em uma trajetória de dedicação ao esporte, ganhou destaque no Barcelona pela visão de jogo, técnica, passes e chegada ao ataque. Foi eleita melhor jogadora do mundo pela Bola de Ouro em 2021 e 2022.</p><div class="tagline">Destaque: duas vezes vencedora da Bola de Ouro feminina.</div></div></article>
+        <article class="player"><div class="player-top"><div class="initial">A</div></div><div class="player-body"><h3>Aitana Bonmatí</h3><div class="country">Espanha 🇪🇸</div><span class="position">Meio-campista</span><p>Aitana Bonmatí nasceu em Sant Pere de Ribes, na Catalunha, em 1998. Desenvolveu sua carreira no Barcelona e tornou-se uma das principais meio-campistas do mundo. É conhecida pela inteligência tática, controle de bola, passes e capacidade de organizar o jogo. Conquistou a Bola de Ouro feminina em 2023, 2024 e 2025.</p><div class="tagline">Destaque: tricampeã da Bola de Ouro feminina.</div></div></article>
+        <article class="player"><div class="player-top"><div class="initial">M</div></div><div class="player-body"><h3>Megan Rapinoe</h3><div class="country">Estados Unidos 🇺🇸</div><span class="position">Atacante / ponta</span><p>Megan Rapinoe nasceu em Redding, Califórnia, em 1985. Foi uma das principais jogadoras da seleção dos Estados Unidos, destacando-se por cruzamentos, criatividade e cobranças de bola parada. Conquistou títulos importantes, incluindo Copas do Mundo, e também ficou conhecida por defender a igualdade de gênero e direitos das atletas.</p><div class="tagline">Destaque: vencedora do prêmio The Best FIFA em 2019.</div></div></article>
+        <article class="player"><div class="player-top"><div class="initial">S</div></div><div class="player-body"><h3>Sam Kerr</h3><div class="country">Austrália 🇦🇺</div><span class="position">Atacante</span><p>Samantha Kerr nasceu em East Fremantle, na Austrália, em 1993. É uma das principais atacantes australianas e destacou-se em clubes de diferentes países. Conhecida pela velocidade, impulsão, movimentação e faro de gol, tornou-se uma referência da seleção australiana e do futebol feminino internacional.</p><div class="tagline">Destaque: capitã e símbolo da seleção australiana.</div></div></article>
+        <article class="player"><div class="player-top"><div class="initial">A</div></div><div class="player-body"><h3>Alex Morgan</h3><div class="country">Estados Unidos 🇺🇸</div><span class="position">Atacante</span><p>Alex Morgan nasceu em San Dimas, Califórnia, em 1989. Ganhou projeção internacional pela seleção dos Estados Unidos, com a qual conquistou a Copa do Mundo em 2015 e 2019. Ficou conhecida pela velocidade, capacidade de finalização e participação em campanhas de divulgação do futebol feminino.</p><div class="tagline">Destaque: bicampeã mundial com os Estados Unidos.</div></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="conquistas">
+    <div class="container">
+      <div class="section-head"><div class="eyebrow">Resultados que inspiram</div><h2>Conquistas e competições importantes</h2><p>O futebol feminino possui torneios nacionais e internacionais que ajudam a desenvolver atletas, clubes e seleções.</p></div>
+      <div class="grid">
+        <article class="card"><h3>Copa do Mundo Feminina</h3><p>Principal competição internacional entre seleções, organizada pela FIFA. A primeira edição aconteceu em 1991. Em 2023, o torneio passou a contar com 32 seleções.</p></article>
+        <article class="card"><h3>Jogos Olímpicos</h3><p>O futebol feminino entrou no programa olímpico em Atlanta 1996. A competição reúne seleções de diferentes continentes e tem grande importância esportiva.</p></article>
+        <article class="card"><h3>Campeonato Brasileiro</h3><p>Competição nacional de clubes organizada pela CBF. Ajuda a fortalecer equipes, revelar talentos e ampliar o calendário do futebol feminino no Brasil.</p></article>
+        <article class="card"><h3>Copa América Feminina</h3><p>Torneio entre seleções sul-americanas organizado pela CONMEBOL. É uma das principais competições da modalidade na América do Sul.</p></article>
+        <article class="card"><h3>UEFA Women's Champions League</h3><p>Competição europeia de clubes que reúne algumas das equipes mais fortes do continente e atrai atenção internacional.</p></article>
+        <article class="card"><h3>Campeonatos estaduais e de base</h3><p>Competições regionais e categorias de formação são fundamentais para ampliar o acesso e criar oportunidades para novas gerações.</p></article>
+      </div>
+      <div class="stats">
+        <div class="stat"><b>1991</b><span>1ª Copa do Mundo Feminina</span></div>
+        <div class="stat"><b>32</b><span>Seleções na Copa de 2023</span></div>
+        <div class="stat"><b>17</b><span>Gols de Marta em Mundiais</span></div>
+        <div class="stat"><b>7</b><span>Copas disputadas por Formiga</span></div>
+      </div>
+      <p class="muted" style="font-size:.8rem;margin-top:12px">Dados históricos referentes às edições e recordes citados nas fontes consultadas.</p>
+    </div>
+  </section>
+
+  <section class="dark-section" id="curiosidades">
+    <div class="container">
+      <div class="section-head"><div class="eyebrow">Você sabia?</div><h2>Curiosidades sobre o futebol feminino</h2><p>Alguns fatos ajudam a entender a dimensão e a importância da modalidade.</p></div>
+      <div class="faq">
+        <details><summary>Quando aconteceu a primeira Copa do Mundo Feminina?</summary><p>Em 1991, na China. Os Estados Unidos foram os campeões da primeira edição.</p></details>
+        <details><summary>Quem é a maior artilheira da Copa do Mundo Feminina?</summary><p>Marta, do Brasil, com 17 gols marcados em seis edições do torneio.</p></details>
+        <details><summary>Por que Formiga é tão importante?</summary><p>Ela participou de sete edições da Copa do Mundo Feminina, entre 1995 e 2019, um recorde na competição.</p></details>
+        <details><summary>O futebol feminino tem as mesmas regras básicas?</summary><p>Sim. As regras fundamentais são as mesmas do futebol praticado por homens: dois tempos, gols, impedimento, faltas, cartões e demais regras do jogo. O que pode mudar são regulamentos específicos de cada competição.</p></details>
+        <details><summary>O que pode ajudar a modalidade a crescer?</summary><p>Mais investimento, formação de base, calendário estável, transmissão dos jogos, patrocínio, estrutura profissional, respeito e oportunidades iguais.</p></details>
+        <details><summary>Por que é importante falar sobre futebol feminino nas escolas?</summary><p>Porque a escola pode combater estereótipos, incentivar a participação de meninas no esporte e ensinar que talento e interesse não dependem de gênero.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="notice"><h2 style="margin-bottom:10px">O futebol é de todas! <span class="pink">🩷</span></h2><p>Valorizar o futebol feminino é reconhecer histórias, talentos e conquistas. É garantir que meninas possam sonhar em ser jogadoras, treinadoras, árbitras, jornalistas esportivas e ocupar todos os espaços do esporte.</p></div>
+    </div>
+  </section>
+
+  <section id="fontes">
+    <div class="container">
+      <div class="section-head"><div class="eyebrow">Pesquisa e referências</div><h2>Fontes de informação</h2><p>As informações deste site devem ser conferidas e atualizadas conforme novas temporadas e competições. Para aprofundar o conteúdo do TCC, consulte fontes oficiais e registre a data de acesso.</p></div>
+      <ul class="sources">
+        <li><a href="https://www.fifa.com/pt/tournaments/womens/womensworldcup" target="_blank" rel="noopener">FIFA — Copa do Mundo Feminina</a>: história, seleções, estatísticas e notícias.</li>
+        <li><a href="https://www.cbf.com.br/" target="_blank" rel="noopener">CBF — Confederação Brasileira de Futebol</a>: Seleção Brasileira, competições e futebol nacional.</li>
+        <li><a href="https://www.conmebol.com/" target="_blank" rel="noopener">CONMEBOL</a>: futebol sul-americano e Copa América Feminina.</li>
+        <li><a href="https://olympics.com/" target="_blank" rel="noopener">Comitê Olímpico Internacional</a>: história e resultados do futebol nos Jogos Olímpicos.</li>
+        <li><a href="https://www.uefa.com/womenschampionsleague/" target="_blank" rel="noopener">UEFA Women's Champions League</a>: competição europeia de clubes.</li>
+      </ul>
+      <p class="muted" style="margin-top:22px;font-size:.9rem">Sugestão para o TCC: acrescente a data em que você consultou cada fonte e inclua as referências no formato solicitado pela sua instituição (por exemplo, ABNT).</p>
+    </div>
+  </section>
+</main>
+<footer><div class="container"><p><strong class="pink">FUTEBOL DELAS</strong> — Informação, respeito e representatividade.</p><p>Projeto acadêmico informativo. Desenvolvido com HTML, CSS e JavaScript.</p><p>© <span id="year"></span> Futebol Delas</p></div></footer>
+<a class="toplink" href="#inicio" aria-label="Voltar ao topo">↑</a>
+<script>
+  const menuBtn = document.getElementById('menuBtn');
+  const menu = document.getElementById('menu');
+  menuBtn.addEventListener('click', () => {
+    const opened = menu.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', opened);
+  });
+  menu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+    menu.classList.remove('open');
+    menuBtn.setAttribute('aria-expanded', 'false');
+  }));
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
